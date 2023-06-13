@@ -1,0 +1,4 @@
+.addTaskField {
+  display: flex;
+  flex-direction: column;
+}
