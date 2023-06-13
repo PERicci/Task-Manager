@@ -15,6 +15,12 @@
   --purple-200: #5E60CE;
 
   --red-500: #E25858;
+
+  --size-tiny: 0.75rem;
+  --size-small: 0.875rem;
+  --size-regular: 1rem;
+  --size-big: 1.5rem;
+  --size-huge: 2rem;
 }
 
 * {
@@ -36,4 +42,23 @@ button {
   font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 1rem;
+}
+
+:focus {
+  outline: transparent;
+  box-shadow: 0 0 0 2px var(--blue-300);
+}
+
+button {
+  background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+button:focus {
+  outline: orange 5px auto;
 }

@@ -1,4 +1,40 @@
+.headerLogo {
+  display: block;
+  margin: 1rem auto;
+}
+
 .addTaskField {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+}
+
+.addTaskContent {
+  width: 30rem;
+  height: 3.4rem;
+  background-color: var(--gray-500);
+  border-style: none;
+  border-radius: 8px;
+  padding: 1rem;
+
+  color: var(--gray-100);
+  line-height: 1.4;
+  font-size: var(--size-regular);
+
+  resize: none;
+}
+
+.addTaskButton {
+  background-color: var(--blue-300);
+
+  height: 3.4rem;
+  width: 5.6rem;
+  border-radius: 8px;
+
+  transition: all 0.1s;
+}
+
+.addTaskButton:hover {
+  background-color: var(--blue-200);
 }
