@@ -1,0 +1,39 @@
+.taskCounter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.allTasks {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.allTasksLabel {
+  font-weight: bold;
+  color: var(--blue-200);
+}
+
+.completedTasks {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.completedTasksLabel {
+  font-weight: bold;
+  color: var(--purple-100);
+}
+
+.tasksAmount {
+  background-color: var(--gray-400);
+  color: var(--gray-200);
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+}

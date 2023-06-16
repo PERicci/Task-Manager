@@ -1,0 +1,54 @@
+.taskItem {
+  display: grid;
+  grid-template-columns: 96% 1fr;
+
+  background-color: var(--gray-500);
+  outline: solid 2px var(--gray-400);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.taskLabel {
+  color: var(--gray-100);
+  position: relative;
+  padding-left: 2rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.taskHiddenCheck {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.taskHiddenCheck:checked ~ .taskVisibleCheck {
+  background-color: var(--purple-200);
+  border: solid 2px var(--purple-200);
+}
+
+.taskLabel:hover .taskHiddenCheck:checked ~ .taskVisibleCheck {
+  background-color: var(--purple-100);
+  border: solid 2px var(--purple-100);
+}
+
+.taskVisibleCheck {
+  position: absolute;
+  top: 0.125rem;
+  left: 0;
+  height: 1.125rem;
+  width: 1.125rem;
+  border-radius: 0.5rem;
+  border: solid 2px var(--blue-300);
+  background-color: transparent;
+}
+
+.taskLabel:hover .taskVisibleCheck {
+  border: solid 2px var(--blue-200);
+}
+
+.deleteTask {
+  justify-self: flex-end;
+}

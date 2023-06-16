@@ -1,10 +1,13 @@
+import { Task } from "./Task"
+import styles from "./TaskList.module.css"
+
 export function TaskList() {
   return (
-    <ul>
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
-      <li>4</li>
+    <ul className={styles.taskList}>
+      <Task />
+      <Task />
+      <Task />
+      <Task />
     </ul>
   )
 }
