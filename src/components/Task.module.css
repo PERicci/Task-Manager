@@ -49,6 +49,26 @@
   border: solid 2px var(--blue-200);
 }
 
+.taskVisibleCheck::after {
+  content: "";
+  position: absolute;
+  display: none;
+
+  left: 0.3125rem;
+  top: 0.0625rem;
+  width: 0.1875rem;
+  height: 0.5rem;
+  border: solid var(--gray-100);
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.taskHiddenCheck:checked ~ .taskVisibleCheck::after {
+  display: block;
+}
+
 .deleteTask {
   justify-self: flex-end;
 }

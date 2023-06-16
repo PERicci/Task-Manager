@@ -65,7 +65,7 @@ main {
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
-  padding: 4rem 1rem 1rem;
+  padding: 4rem 0 1rem;
   margin: 0 auto;
 }
 
