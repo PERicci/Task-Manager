@@ -1,0 +1,19 @@
+.footer {
+  background-color: var(--gray-700);
+  padding: 1rem;
+}
+
+.socialMedia {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  gap: 2rem;
+}
+
+.iconReference p{
+  font-size: var(--size-tiny);
+  text-align: center;
+  margin: 1rem auto;
+}

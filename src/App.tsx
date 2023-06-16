@@ -1,21 +1,18 @@
 import "./global.css";
 import { TaskList } from "./components/TaskList";
+import { TaskCounter } from "./components/TaskCounter";
 import { Header } from "./components/Header";
-
+import { Footer } from "./components/Footer";
 
 export function App() {
   return (
     <>
-      <header>
-        <Header />
-      </header>
+      <Header />
       <main>
+        <TaskCounter />
         <TaskList />
       </main>
-      <footer>
-        <a href="https://icons8.com/icon/11864/task" target="_blank">Task</a> icon by{" "}
-        <a href="https://icons8.com" target="_blank">Icons8</a>
-      </footer>
+      <Footer />
     </>
   );
 }
