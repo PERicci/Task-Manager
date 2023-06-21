@@ -4,8 +4,20 @@
 }
 
 .headerLogo {
-  display: block;
-  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.titleTo {
+  color: var(--blue-200);
+  font-weight: 900;
+}
+
+.titleDo {
+  color: var(--purple-200);
+  font-weight: 900;
 }
 
 .addTaskField {

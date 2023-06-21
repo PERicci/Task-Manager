@@ -76,3 +76,14 @@ button:focus {
 img {
   margin: 0;
 }
+
+a, a:link, a:visited {
+  text-decoration: none;
+  color: var(--gray-100);
+  transition: all 0.1s;
+}
+
+a:hover, a:active {
+  font-weight: bold;
+  color: var(--blue-200);
+}

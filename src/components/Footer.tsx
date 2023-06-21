@@ -1,11 +1,16 @@
 import styles from "./Footer.module.css";
+import { GithubLogo, LinkedinLogo } from "@phosphor-icons/react";
 
 export function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.socialMedia}>
-        <div>Github</div>
-        <div>LinkedIn</div>
+        <a href="https://github.com/PERicci" target="_blank">
+          <GithubLogo />
+        </a>
+        <a href="https://www.linkedin.com/in/pedro-ricciardi/" target="_blank">
+          <LinkedinLogo />
+        </a>
       </div>
       <div className={styles.iconReference}>
         <p>

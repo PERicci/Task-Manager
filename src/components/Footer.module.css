@@ -9,11 +9,21 @@
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
-  gap: 2rem;
+  gap: 1rem;
+  font-size: 2rem;
+}
+
+.socialMedia > a {
+  transition: all 0.2s;
+}
+
+.socialMedia > a:hover {
+  transform: scale(1.2);
+  transition: all 0.2s;
 }
 
 .iconReference p{
   font-size: var(--size-tiny);
   text-align: center;
-  margin: 1rem auto;
+  margin: 0 auto;
 }

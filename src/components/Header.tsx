@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import haederLogo from "../assets/headerLogo.png";
+import { useState } from "react";
+import headerLogo from "../assets/headerLogo.png";
 import styles from "./Header.module.css";
 
 export function Header({ onTaskToAdd }) {
@@ -9,35 +9,54 @@ export function Header({ onTaskToAdd }) {
     setTaskContentToAdd(event.target.value);
   }
 
-  function handleSendTaskToAdd() {
+  function handleSendTaskToAdd(event) {
+    event.preventDefault();
+
     if (taskContentToAdd !== "") {
-      const dateToKey = String(new Date()).replace(/\s+/g, "");
+      const date = new Date();
+      const dateToKey = String(date).replace(/\s+/g, "");
       const firstAndLastLetterFromContent =
         taskContentToAdd.charAt(0) + taskContentToAdd.slice(-1);
-      const key = firstAndLastLetterFromContent + dateToKey;
+      const dateMilliseconds = date.getMilliseconds();
+      const id = firstAndLastLetterFromContent + dateToKey + dateMilliseconds;
 
       const taskToAdd = {
-        key: key,
+        id: id,
         content: taskContentToAdd,
         isDone: false,
       };
       onTaskToAdd(taskToAdd);
     }
+    setTaskContentToAdd("");
+  }
+
+  function handleKeyDown(event) {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      handleSendTaskToAdd(event);
+    }
   }
 
   return (
     <header className={styles.header}>
-      <img className={styles.headerLogo} src={haederLogo} alt="clipboard" />
-      <div className={styles.addTaskField}>
+      <div className={styles.headerLogo}>
+        <img src={headerLogo} alt="clipboard" />
+        <h1 className={styles.titleTo}>to</h1>
+        <h1 className={styles.titleDo}>do</h1>
+      </div>
+
+      <form onSubmit={handleSendTaskToAdd} className={styles.addTaskField}>
         <textarea
           className={styles.addTaskContent}
-          onInput={handleInput}
+          onChange={handleInput}
+          value={taskContentToAdd}
+          onKeyDown={handleKeyDown}
           required
         ></textarea>
-        <button className={styles.addTaskButton} onClick={handleSendTaskToAdd}>
+        <button type="submit" className={styles.addTaskButton}>
           Add
         </button>
-      </div>
+      </form>
     </header>
   );
 }

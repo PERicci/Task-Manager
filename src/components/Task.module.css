@@ -16,6 +16,15 @@
   user-select: none;
 }
 
+.taskLabelChecked {
+  color: var(--gray-300);
+  text-decoration: line-through;
+  position: relative;
+  padding-left: 2rem;
+  cursor: pointer;
+  user-select: none;
+}
+
 .taskHiddenCheck {
   position: absolute;
   opacity: 0;
@@ -71,4 +80,17 @@
 
 .deleteTask {
   justify-self: flex-end;
+  cursor: pointer;
+  
+  color: var(--gray-300);
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 1rem;
+
+  transition: color 0.1s;
+}
+
+.deleteTask:hover {
+  color: var(--red-500);
+  transition: all 0.1s;
 }

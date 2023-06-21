@@ -7,16 +7,18 @@ import { useState } from "react";
 
 export function App() {
   const [taskToAdd, setTaskToAdd] = useState({});
-  const [taskListCounter, setTaskListCounter] = useState(0);
+  const [taskCounter, setTaskCounter] = useState(0);
+  const [taskCompletedCounter, setTaskCompletedCounter] = useState(0);
   
   return (
     <>
       <Header onTaskToAdd={setTaskToAdd} />
       <main>
-        <TaskCounter taskListCounter={taskListCounter}/>
+        <TaskCounter taskCounter={taskCounter} taskCompletedCounter={taskCompletedCounter}/>
         <TaskList
           taskToAdd={taskToAdd}
-          onTaskListCounter={setTaskListCounter}
+          onTaskCounter={setTaskCounter}
+          onTaskCompletedCounter={setTaskCompletedCounter}
         />
       </main>
       <Footer />
