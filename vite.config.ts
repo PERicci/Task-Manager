@@ -6,6 +6,6 @@ export default defineConfig({
   server: {
     port: 3001,
   },
-  base: "/rocketseat-01-challenge",
+  base: "/rocketseat-01-challenge/",
   plugins: [react()],
 });
