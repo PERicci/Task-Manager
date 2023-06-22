@@ -1,6 +1,11 @@
 import styles from "./TaskCounter.module.css";
 
-export function TaskCounter({taskCounter, taskCompletedCounter}) {
+interface TaskCounterProps {
+  taskCounter: number;
+  taskCompletedCounter: number;
+}
+
+export function TaskCounter({taskCounter, taskCompletedCounter}: TaskCounterProps) {
   
   return (
     <div className={styles.taskCounter}>

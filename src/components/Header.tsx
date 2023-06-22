@@ -1,17 +1,32 @@
-import { useState } from "react";
+import { useState, ChangeEvent, KeyboardEvent, FormEvent } from "react";
 import headerLogo from "../assets/headerLogo.png";
 import styles from "./Header.module.css";
+import { TaskToAdd } from "../App";
 
-export function Header({ onTaskToAdd }) {
+interface HeaderProps {
+  onTaskToAdd: (tasktoAdd: TaskToAdd) => void;
+}
+
+export function Header({ onTaskToAdd }: HeaderProps) {
   const [taskContentToAdd, setTaskContentToAdd] = useState("");
 
-  function handleInput(event) {
+  function handleInput(event: ChangeEvent<HTMLTextAreaElement>) {
     setTaskContentToAdd(event.target.value);
   }
 
-  function handleSendTaskToAdd(event) {
-    event.preventDefault();
+  function onSendTaskEnterSubmit(event: KeyboardEvent<HTMLTextAreaElement>) {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      onSendTaskToAdd();
+    }
+  }
 
+  function onSendTaskOnSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    onSendTaskToAdd();
+  }
+
+  function onSendTaskToAdd() {
     if (taskContentToAdd !== "") {
       const date = new Date();
       const dateToKey = String(date).replace(/\s+/g, "");
@@ -30,13 +45,6 @@ export function Header({ onTaskToAdd }) {
     setTaskContentToAdd("");
   }
 
-  function handleKeyDown(event) {
-    if (event.key === "Enter" && !event.shiftKey) {
-      event.preventDefault();
-      handleSendTaskToAdd(event);
-    }
-  }
-
   return (
     <header className={styles.header}>
       <div className={styles.headerLogo}>
@@ -45,12 +53,16 @@ export function Header({ onTaskToAdd }) {
         <h1 className={styles.titleDo}>do</h1>
       </div>
 
-      <form onSubmit={handleSendTaskToAdd} className={styles.addTaskField}>
+      <form
+        onSubmit={onSendTaskOnSubmit}
+        className={styles.addTaskField}
+      >
         <textarea
+          name="taskContent"
           className={styles.addTaskContent}
           onChange={handleInput}
+          onKeyDown={onSendTaskEnterSubmit}
           value={taskContentToAdd}
-          onKeyDown={handleKeyDown}
           required
         ></textarea>
         <button type="submit" className={styles.addTaskButton}>

@@ -1,15 +1,22 @@
 import { useEffect, useState } from "react";
 import { Task } from "./Task";
+import { TaskToAdd } from "../App";
 import styles from "./TaskList.module.css";
 
-export function TaskList({ taskToAdd, onTaskCounter, onTaskCompletedCounter }) {
-  const [tasks, setTasks] = useState([]);
+interface TaskListProps {
+  taskToAdd: TaskToAdd;
+  onTaskCounter: (count: number) => void;
+  onTaskCompletedCounter: (count: number) => void;
+}
+
+export function TaskList({ taskToAdd, onTaskCounter, onTaskCompletedCounter }: TaskListProps) {
+  const [tasks, setTasks] = useState<TaskToAdd[]>([]);
 
   useEffect(addTask, [taskToAdd]);
 
   useEffect(getListFromLocalStorage, []);
 
-  function saveListInLocalStorage(taskList) {
+  function saveListInLocalStorage(taskList: TaskToAdd[]) {
     const taskListStringfied = JSON.stringify(taskList);
     localStorage.setItem("taskList", taskListStringfied);
   }
@@ -24,7 +31,7 @@ export function TaskList({ taskToAdd, onTaskCounter, onTaskCompletedCounter }) {
     }
   }
 
-  function taskCounterUpdate(newTaskList) {
+  function taskCounterUpdate(newTaskList: TaskToAdd[]) {
     onTaskCounter(newTaskList.length);
 
     const completedTasksCount = newTaskList.filter(
@@ -43,7 +50,7 @@ export function TaskList({ taskToAdd, onTaskCounter, onTaskCompletedCounter }) {
     }
   }
 
-  function updateTaskIsDone(taskId, newIsDone) {
+  function updateTaskIsDone(taskId: string, newIsDone: boolean) {
     const newTaskList = tasks.map((task) => {
       if (task.id === taskId) {
         return { ...task, isDone: newIsDone };
@@ -55,7 +62,7 @@ export function TaskList({ taskToAdd, onTaskCounter, onTaskCompletedCounter }) {
     saveListInLocalStorage(newTaskList);
   }
 
-  function deleteTask(taskId) {
+  function deleteTask(taskId: string) {
     const newTaskList = tasks.filter((task) => task.id !== taskId);
     setTasks(newTaskList);
     taskCounterUpdate(newTaskList);

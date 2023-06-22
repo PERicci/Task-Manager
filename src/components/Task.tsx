@@ -1,6 +1,14 @@
-import { useState } from "react";
+import { useState, MouseEvent } from "react";
 import styles from "./Task.module.css";
 import { Trash } from "@phosphor-icons/react";
+
+interface TaskProps {
+  id: string;
+  content: string;
+  isDone: boolean;
+  onUpdateTaskIsDone: (taskId: string, isDone: boolean) => void;
+  onDeleteTask: (taskId: string) => void;
+}
 
 export function Task({
   id,
@@ -8,7 +16,7 @@ export function Task({
   isDone,
   onUpdateTaskIsDone,
   onDeleteTask,
-}) {
+}: TaskProps) {
   const [isChecked, setIsChecked] = useState(isDone);
 
   function handleChangeTaskIsDone() {
@@ -17,8 +25,8 @@ export function Task({
     onUpdateTaskIsDone(id, newCheckedState);
   }
 
-  function handleDeleteTask(event) {
-    const taskIdToDelete = event.currentTarget.previousSibling.id;
+  function handleDeleteTask(event: MouseEvent<HTMLDivElement>) {
+    const taskIdToDelete = (event.currentTarget.previousSibling as HTMLElement).id;
     onDeleteTask(taskIdToDelete);
   }
 
