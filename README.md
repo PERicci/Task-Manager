@@ -1,4 +1,4 @@
-# React+TypeScript Task Manager
+# React + TypeScript Task Manager
 
 ![Task Manager Screenshot](/public/screenshotPC.png)
 
