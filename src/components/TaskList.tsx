@@ -74,7 +74,7 @@ export function TaskList({ taskToAdd, onTaskCounter, onTaskCompletedCounter }: T
     <>
     <div className={tasks.length === 0 ? styles.taskListEmpty: styles.hidden}>
       <ClipboardText className={styles.clipboard}/>
-      <h2>You ain't got no tasks listed</h2>
+      <h2>You haven't got any tasks listed.</h2>
       <p>Create tasks and sort out your to-do items</p>
     </div>
     <ul className={tasks.length === 0 ? styles.hidden : styles.taskList}>
