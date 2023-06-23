@@ -64,6 +64,7 @@ export function Header({ onTaskToAdd }: HeaderProps) {
           onChange={handleInput}
           onKeyDown={onSendTaskEnterSubmit}
           value={taskContentToAdd}
+          placeholder="Enter task description Press 'Add' button or press ENTER to add the task"
           required
         ></textarea>
         <button type="submit" className={styles.addTaskButton}>
