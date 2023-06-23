@@ -1,2 +1,31 @@
-# rocketseat_01_challenge
-1st Rocketseat challenge: To do list using React + TypeScript
+# React+TypeScript Task Manager
+
+![Task Manager Screenshot](screenshot.png)
+
+A simple task manager application built with React and TypeScript. It allows you to add, update, and delete tasks, and keeps track of the total number of tasks and completed tasks.
+
+## Features
+
+- Add tasks: Enter a task description and press Enter or click the "Add Task" button.
+- Update task status: Click on a task to mark it as completed or uncompleted.
+- Delete tasks: Click on the delete button next to a task to remove it from the list.
+- Task counters: Displays the total number of tasks and completed tasks.
+- Local storage: Tasks are stored in the browser's local storage for persistence.
+
+## Technologies Used
+
+- React: JavaScript library for building user interfaces.
+- TypeScript: Superset of JavaScript that adds static typing.
+- Vite: Fast development server and bundler.
+- CSS Modules: Scoped CSS styling for React components.
+- gh-pages: Deployment tool for publishing the app to GitHub Pages.
+
+## Getting Started
+
+To run the project locally, follow these steps:
+
+1. Clone the repository: `git clone https://github.com/PERicci/rocketseat-01-challenge.git`
+2. Navigate to the project directory: `cd rocketseat-01-challenge`
+3. Install dependencies: `npm install`
+4. Start the development server: `npm run dev`
+5. Open your browser and visit `http://localhost:3001/rocketseat-01-challenge`

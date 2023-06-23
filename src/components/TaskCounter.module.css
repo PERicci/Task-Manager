@@ -1,5 +1,6 @@
 .taskCounter {
   display: grid;
+  margin-top: 1rem;
   grid-template-columns: 1fr 1fr;
   justify-content: space-around;
   align-content: center;

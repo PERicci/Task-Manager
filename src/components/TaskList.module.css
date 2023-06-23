@@ -4,3 +4,24 @@
   grid-template-columns: 1fr;
   gap: 0.75rem;
 }
+
+.taskListEmpty {
+  display: grid;
+  border-radius: 8px;
+  border-top: 2px solid var(--gray-400);
+  color: var(--gray-300);
+  grid-template-columns: 1fr;
+  grid-template-rows: 4fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+}
+
+.clipboard {
+  font-size: 5rem;
+  line-height: 5rem;
+  color: var(--gray-400);
+}
+
+.hidden {
+  display: none;
+}

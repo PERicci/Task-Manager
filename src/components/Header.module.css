@@ -21,13 +21,19 @@
 }
 
 .addTaskField {
-  width: 50%;
+  width: var(--page-width);
   margin: 0 auto;
   display: grid;
   grid-template-columns: 90% 1fr;
   align-items: center;
   gap: 0.625rem;
   transform: translateY(1.7rem);
+}
+
+@media (max-width: 768px) {
+  .addTaskField {
+    grid-template-columns: 1fr;
+  }
 }
 
 .addTaskContent {
@@ -46,6 +52,10 @@
 }
 
 .addTaskButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
   background-color: var(--blue-300);
   color: var(--gray-100);
   outline: 0;
@@ -56,6 +66,14 @@
   transition: all 0.1s;
 }
 
+@media (max-width: 768px) {
+  .addTaskButton {
+    height: 2.5rem;
+    width: 40%;
+    justify-self: center;
+  }
+}
+
 .addTaskButton:hover {
   background-color: var(--blue-200);
   outline: 0;
@@ -63,4 +81,8 @@
 
 .addTaskButton:focus {
   outline: 0;
+}
+
+.plusCircle {
+  font-size: 1.125rem;
 }

@@ -22,6 +22,8 @@
   --size-regular: 1rem;
   --size-big: 1.5rem;
   --size-huge: 2rem;
+
+  --page-width: 50%;
 }
 
 * {
@@ -61,7 +63,7 @@ button {
 }
 
 main {
-  width: 50%;
+  width: var(--page-width);
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
@@ -70,7 +72,7 @@ main {
 }
 
 button:focus {
-  outline: orange 5px auto;
+  outline: var(--blue-300) 5px auto;
 }
 
 img {
@@ -84,6 +86,19 @@ a, a:link, a:visited {
 }
 
 a:hover, a:active {
-  font-weight: bold;
+  transform: scale(1.2);
   color: var(--blue-200);
+  transition: all 0.1s;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --size-tiny: 0.625rem;
+    --size-small: 0.75rem;
+    --size-regular: 0.875rem;
+    --size-big: 1rem;
+    --size-huge: 1.5rem;
+  
+    --page-width: 95%;
+  }
 }

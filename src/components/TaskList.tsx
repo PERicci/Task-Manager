@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Task } from "./Task";
 import { TaskToAdd } from "../App";
+import { ClipboardText } from "@phosphor-icons/react";
 import styles from "./TaskList.module.css";
 
 interface TaskListProps {
@@ -70,7 +71,13 @@ export function TaskList({ taskToAdd, onTaskCounter, onTaskCompletedCounter }: T
   }
 
   return (
-    <ul className={styles.taskList}>
+    <>
+    <div className={tasks.length === 0 ? styles.taskListEmpty: styles.hidden}>
+      <ClipboardText className={styles.clipboard}/>
+      <h2>You ain't got no tasks listed</h2>
+      <p>Create tasks and sort out your to-do items</p>
+    </div>
+    <ul className={tasks.length === 0 ? styles.hidden : styles.taskList}>
       {tasks.map((task) => {
         return (
           <Task
@@ -84,5 +91,6 @@ export function TaskList({ taskToAdd, onTaskCounter, onTaskCompletedCounter }: T
         );
       })}
     </ul>
+    </>
   );
 }

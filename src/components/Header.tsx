@@ -2,6 +2,7 @@ import { useState, ChangeEvent, KeyboardEvent, FormEvent } from "react";
 import headerLogo from "../assets/headerLogo.png";
 import styles from "./Header.module.css";
 import { TaskToAdd } from "../App";
+import { PlusCircle } from "@phosphor-icons/react";
 
 interface HeaderProps {
   onTaskToAdd: (tasktoAdd: TaskToAdd) => void;
@@ -66,7 +67,7 @@ export function Header({ onTaskToAdd }: HeaderProps) {
           required
         ></textarea>
         <button type="submit" className={styles.addTaskButton}>
-          Add
+          <p>Add</p> <PlusCircle className={styles.plusCircle} />
         </button>
       </form>
     </header>
