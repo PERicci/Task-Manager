@@ -15,7 +15,7 @@ export function TaskList({ taskToAdd, onTaskCounter, onTaskCompletedCounter }: T
 
   useEffect(addTask, [taskToAdd]);
 
-  useEffect(getListFromLocalStorage, []);
+  useEffect(getListFromLocalStorage);
 
   function saveListInLocalStorage(taskList: TaskToAdd[]) {
     const taskListStringfied = JSON.stringify(taskList);
